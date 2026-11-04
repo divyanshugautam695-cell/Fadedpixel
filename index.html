@@ -102,6 +102,7 @@ body{color:var(--ink);font-family:Georgia,"Times New Roman",serif;background-col
     }else{
       button.textContent='Connect Spotify';
       button.disabled=false;
+      if(note)note.textContent='Not connected yet — no saved Spotify session was found on this page.';
     }
   }
   button.addEventListener('click',async function(){
