@@ -77,8 +77,37 @@ body::after{z-index:0;opacity:.72;background:radial-gradient(ellipse at 12% 18%,
 .page{position:relative;z-index:2}
 .decor{z-index:1}
 @media(prefers-reduced-motion:reduce){.pixel-lights,.pixel-lights:before,.pixel-lights:after{animation:none}}
+
+/* Pixel-art cherry blossom canopy and falling sakura */
+.sakura-fall{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.sakura-branch{position:fixed;z-index:1;pointer-events:none;top:-35px;right:-35px;width:min(54vw,570px);height:180px;opacity:.32;
+ background:linear-gradient(158deg,transparent 0 44%,#66594b 45% 47%,transparent 48%),
+ linear-gradient(145deg,transparent 0 57%,#66594b 58% 60%,transparent 61%);
+ filter:drop-shadow(1px 2px 0 #fff8)}
+.sakura-branch:before,.sakura-branch:after{content:"";position:absolute;width:13px;height:13px;background:#e9aebd;
+ box-shadow:13px 0 #e9aebd,26px 0 #f4c8d1,0 13px #f4c8d1,13px 13px #f7d9df,26px 13px #e9aebd,39px 13px #f4c8d1,13px 26px #e9aebd,26px 26px #f4c8d1;
+ image-rendering:pixelated;transform:rotate(-18deg)}
+.sakura-branch:before{top:45px;right:32%}.sakura-branch:after{top:95px;right:8%;transform:rotate(22deg)}
+.petal{position:absolute;top:-30px;left:var(--x);width:10px;height:10px;opacity:.88;
+ background:#f3c5d0;image-rendering:pixelated;
+ box-shadow:10px 0 #f8dce2,-10px 0 #e9a9ba,0 10px #e9a9ba,10px 10px #f8dce2;
+ animation:petalFall var(--duration) linear var(--delay) infinite}
+.p1{--x:5%;--duration:13s;--delay:-8s}.p2{--x:12%;--duration:17s;--delay:-3s;background:#e9a9ba}
+.p3{--x:19%;--duration:15s;--delay:-12s}.p4{--x:27%;--duration:19s;--delay:-5s}
+.p5{--x:34%;--duration:14s;--delay:-10s;background:#f8dce2}.p6{--x:41%;--duration:18s;--delay:-2s}
+.p7{--x:48%;--duration:16s;--delay:-14s}.p8{--x:55%;--duration:20s;--delay:-7s;background:#e9a9ba}
+.p9{--x:62%;--duration:13s;--delay:-4s}.p10{--x:69%;--duration:17s;--delay:-11s}
+.p11{--x:76%;--duration:15s;--delay:-6s;background:#f8dce2}.p12{--x:83%;--duration:19s;--delay:-15s}
+.p13{--x:90%;--duration:14s;--delay:-9s}.p14{--x:97%;--duration:18s;--delay:-1s}
+.p15{--x:9%;--duration:22s;--delay:-16s}.p16{--x:24%;--duration:21s;--delay:-13s}
+.p17{--x:39%;--duration:23s;--delay:-18s}.p18{--x:58%;--duration:22s;--delay:-17s}
+.p19{--x:73%;--duration:24s;--delay:-20s}.p20{--x:88%;--duration:21s;--delay:-19s}
+.p21{--x:31%;--duration:25s;--delay:-22s;background:#e9a9ba}.p22{--x:80%;--duration:23s;--delay:-21s}
+@keyframes petalFall{0%{transform:translate3d(0,-8vh,0) rotate(0deg)}25%{transform:translate3d(35px,25vh,0) rotate(100deg)}50%{transform:translate3d(-22px,52vh,0) rotate(210deg)}75%{transform:translate3d(42px,78vh,0) rotate(300deg)}100%{transform:translate3d(-12px,112vh,0) rotate(420deg)}}
+.page{z-index:2}.decor{z-index:2}
+@media(prefers-reduced-motion:reduce){.petal{animation:none;display:none}}
 </style></head>
-<body><div class="pixel-lights" aria-hidden="true"></div><div class="decor d1">✿</div><div class="decor d2">♡</div><div class="decor d3">✧</div><div class="decor d4">❀</div>
+<body><div class="pixel-lights" aria-hidden="true"></div><div class="sakura-fall" aria-hidden="true"><i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i><i class="petal p4"></i><i class="petal p5"></i><i class="petal p6"></i><i class="petal p7"></i><i class="petal p8"></i><i class="petal p9"></i><i class="petal p10"></i><i class="petal p11"></i><i class="petal p12"></i><i class="petal p13"></i><i class="petal p14"></i><i class="petal p15"></i><i class="petal p16"></i><i class="petal p17"></i><i class="petal p18"></i><i class="petal p19"></i><i class="petal p20"></i><i class="petal p21"></i><i class="petal p22"></i></div><div class="sakura-branch" aria-hidden="true"></div><div class="decor d1">✿</div><div class="decor d2">♡</div><div class="decor d3">✧</div><div class="decor d4">❀</div>
 <main class="page" id="top"><h1 class="site-title">fadedpixel<span style="color:#5b8588">_</span></h1><p class="tagline">a little corner of the internet</p>
 <section class="window" id="home"><header class="titlebar"><span class="gear">⚙</span><span>Virtual PC Console</span><div class="window-controls"><button class="winbtn" aria-label="Minimize" onclick="document.querySelector('.inner').classList.toggle('hidden')">−</button><button class="winbtn" aria-label="Info" onclick="alert('Welcome to fadedpixel.')">i</button><button class="winbtn" aria-label="Close" onclick="document.querySelector('.window').style.opacity='.35'">×</button></div></header>
 <nav class="nav"><a href="#home">Home</a><a href="#about">About</a><a href="#interests">Interests</a><a href="#socials">Links</a><a href="#top">Top</a></nav>
