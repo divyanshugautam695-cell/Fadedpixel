@@ -78,24 +78,50 @@ body{color:var(--ink);font-family:Georgia,"Times New Roman",serif;background-col
 <div class="user-strip">a personal archive · est. 2026</div><div class="socials" id="socials"><div class="social"><h3>Discord</h3><a class="social-card" href="#" onclick="event.preventDefault();alert('Add your Discord link here!')" aria-label="Discord link">◉</a><p>add your username</p></div><div class="social"><h3>Instagram</h3><a class="social-card insta" href="https://www.instagram.com/_momoz_wala/" target="_blank" rel="noopener noreferrer" aria-label="Visit my Instagram profile">◎</a><p>Instagram</p></div><div class="social"><h3>Spotify</h3><a class="social-card" style="background:linear-gradient(145deg,#71866c,#9eaa8b)" href="https://open.spotify.com/user/31uzanjr7xnumjzlritc66lg4t4y" target="_blank" rel="noopener noreferrer" aria-label="Visit my Spotify profile">♫</a><p>My Spotify</p></div></div>
 
 <div id="reply" class="footer">BUILT BY FADEDPIXEL · <a href="#top">back to top</a></div></div></section><p class="footer">© fadedpixel · thanks for stopping by</p></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script>
 (function(){
   const button=document.getElementById('spotify-connect');
   const note=document.querySelector('.music-note');
   if(!button)return;
-  button.addEventListener('click',function(){
+  if(!window.supabase || !window.supabase.createClient){
+    if(note)note.textContent='Spotify connection library did not load. Please refresh and try again.';
+    return;
+  }
+  const client=window.supabase.createClient(
+    'https://lejudnxibpxfihanadcd.supabase.co',
+    'sb_publishable_6bhecZjZcTW8QCTFu6RAOg_zQjsNlCN'
+  );
+  async function showConnection(){
+    const {data:{session},error}=await client.auth.getSession();
+    if(error){if(note)note.textContent='Could not check Spotify connection. Please try again.';return;}
+    if(session){
+      button.textContent='Spotify connected ✓';
+      button.disabled=false;
+      if(note)note.textContent='Signed in successfully. Checking live listening status is the next step.';
+    }else{
+      button.textContent='Connect Spotify';
+      button.disabled=false;
+    }
+  }
+  button.addEventListener('click',async function(){
     button.disabled=true;
-    button.textContent='Opening Spotify…';
-    if(note)note.textContent='Redirecting to secure Spotify sign-in…';
-    const base='https://lejudnxibpxfihanadcd.supabase.co/auth/v1/authorize';
-    const params=new URLSearchParams({
+    button.textContent='Connecting…';
+    if(note)note.textContent='Opening secure Spotify sign-in…';
+    const {error}=await client.auth.signInWithOAuth({
       provider:'spotify',
-      redirect_to:'https://divyanshugautam695-cell.github.io/Fadedpixel/',
-      scopes:'user-read-currently-playing',
-      apikey:'sb_publishable_6bhecZjZcTW8QCTFu6RAOg_zQjsNlCN'
+      options:{
+        scopes:'user-read-currently-playing',
+        redirectTo:'https://divyanshugautam695-cell.github.io/Fadedpixel/'
+      }
     });
-    window.location.assign(base+'?'+params.toString());
+    if(error){
+      button.disabled=false;
+      button.textContent='Connect Spotify';
+      if(note)note.textContent='Connection error: '+error.message;
+    }
   });
+  showConnection();
 })();
 </script>
 <script>const musicDefaults={title:'',artist:'',url:'https://open.spotify.com/user/31uzanjr7xnumjzlritc66lg4t4y'};function renderMusic(){let s=musicDefaults;try{s={...s,...JSON.parse(localStorage.getItem('fadedpixel-music')||'{}')}}catch(e){}document.getElementById('music-title').textContent=s.title||'No track added yet';document.getElementById('music-artist').textContent=s.artist||'Add the song you\'re listening to';document.getElementById('music-open').href=s.url||musicDefaults.url;document.getElementById('music-cover').textContent='♫'}document.getElementById('music-edit').addEventListener('click',function(){const title=prompt('Song title?');if(title===null)return;const artist=prompt('Artist name?')||'';const url=prompt('Spotify track link (optional):','https://open.spotify.com/')||musicDefaults.url;try{localStorage.setItem('fadedpixel-music',JSON.stringify({title:title.trim(),artist:artist.trim(),url:url.trim()}))}catch(e){}renderMusic()});renderMusic();const clock=document.getElementById('clock');function updateClock(){clock.textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}updateClock();setInterval(updateClock,30000);let count=0;document.getElementById('like').addEventListener('click',function(){count++;document.getElementById('likes').textContent=count;this.classList.add('liked');this.firstChild.textContent='♥ Like '});document.getElementById('share').addEventListener('click',async function(){const data={title:'fadedpixel ♡',text:'a little corner of the internet ✧',url:location.href};try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(location.href);alert('Website link copied!')}}catch(e){}});</script>
