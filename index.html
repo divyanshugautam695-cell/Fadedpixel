@@ -57,8 +57,28 @@ body::after{z-index:0;opacity:.72;background:radial-gradient(ellipse at 12% 18%,
 @keyframes softLight{0%{transform:translate3d(-2%,0,0);filter:brightness(.96)}100%{transform:translate3d(2%,-1%,0);filter:brightness(1.08)}}
 .page{z-index:1}
 @media(prefers-reduced-motion:reduce){body::before,body::after{animation:none}}
+
+/* Clearly visible animated pixel lights */
+.pixel-lights{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+ background-image:
+ radial-gradient(circle,#ffffff 0 1.6px,transparent 2.6px),
+ radial-gradient(circle,#aebda0 0 2px,transparent 3px),
+ radial-gradient(circle,#ffffffc9 0 1px,transparent 2px);
+ background-size:46px 46px,73px 73px,29px 29px;
+ background-position:0 0,19px 27px,8px 13px;
+ animation:pixelFloat 16s linear infinite;
+ opacity:.78}
+.pixel-lights:before,.pixel-lights:after{content:"";position:absolute;inset:-35%;
+ background:radial-gradient(ellipse at 25% 35%,#ffffffaa 0,transparent 22%),radial-gradient(ellipse at 72% 68%,#b7c5a488 0,transparent 25%);
+ filter:blur(18px);animation:lightSweep 12s ease-in-out infinite alternate}
+.pixel-lights:after{opacity:.65;animation-duration:18s;animation-direction:alternate-reverse}
+@keyframes pixelFloat{to{background-position:92px 69px,-54px 100px,58px -29px}}
+@keyframes lightSweep{from{transform:translate(-4%,2%) scale(.95)}to{transform:translate(5%,-3%) scale(1.08)}}
+.page{position:relative;z-index:2}
+.decor{z-index:1}
+@media(prefers-reduced-motion:reduce){.pixel-lights,.pixel-lights:before,.pixel-lights:after{animation:none}}
 </style></head>
-<body><div class="decor d1">✿</div><div class="decor d2">♡</div><div class="decor d3">✧</div><div class="decor d4">❀</div>
+<body><div class="pixel-lights" aria-hidden="true"></div><div class="decor d1">✿</div><div class="decor d2">♡</div><div class="decor d3">✧</div><div class="decor d4">❀</div>
 <main class="page" id="top"><h1 class="site-title">fadedpixel<span style="color:#5b8588">_</span></h1><p class="tagline">a little corner of the internet</p>
 <section class="window" id="home"><header class="titlebar"><span class="gear">⚙</span><span>Virtual PC Console</span><div class="window-controls"><button class="winbtn" aria-label="Minimize" onclick="document.querySelector('.inner').classList.toggle('hidden')">−</button><button class="winbtn" aria-label="Info" onclick="alert('Welcome to fadedpixel.')">i</button><button class="winbtn" aria-label="Close" onclick="document.querySelector('.window').style.opacity='.35'">×</button></div></header>
 <nav class="nav"><a href="#home">Home</a><a href="#about">About</a><a href="#interests">Interests</a><a href="#socials">Links</a><a href="#top">Top</a></nav>
