@@ -16,16 +16,43 @@
 .actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.action{border:1px solid #cdbbc1;border-radius:4px;background:#fff8fb;color:#987b84;padding:8px 12px;font:14px Arial,sans-serif;cursor:pointer;box-shadow:0 2px 4px #0001}.action:hover,.action.liked{background:#ffe1eb;color:#c16f91}
 .user-strip{margin:14px 0;border:1px solid #e5b8c8;border-radius:30px;background:#f9dce6;padding:15px;text-align:center;font:bold 14px Arial,sans-serif;letter-spacing:2px;color:#805f68}.socials{display:grid;grid-template-columns:1fr 1fr;gap:13px}.social{border:1px dashed #c9b9bf;border-radius:8px;padding:12px;text-align:center;background:#ffffff65}.social h3{font:bold 15px Arial,sans-serif;letter-spacing:2px;margin:0 0 10px}.social-card{min-height:130px;border-radius:22px;display:grid;place-items:center;font-size:54px;color:#76594e;background-color:#bfeee0;background-image:radial-gradient(#76594e 3px,transparent 4px);background-size:23px 23px;border:1px solid #a8d5c7;cursor:pointer;text-decoration:none}.social-card.insta{background-color:#765e62;color:#fff;background-image:radial-gradient(#f8cbdc 3px,transparent 4px);border-color:#b99aa4}.social p{margin:8px 0 0;color:#9b8c91;font:13px Arial,sans-serif}.footer{text-align:center;color:#a8999d;font:12px Arial,sans-serif;margin:17px 0 0}.footer a{color:#a67b8a}.hidden{display:none}
 @media(max-width:560px){.page{width:94%;margin:35px auto}.inner{padding:12px}.profile{grid-template-columns:1fr}.hero-art{min-height:205px}.handle,.bio{text-align:center}.mini-gallery{max-width:330px;margin:12px auto}.socials{gap:8px}.social{padding:8px}.social-card{min-height:105px;font-size:44px}.nav{justify-content:center}}
+
+/* fadedpixel — cleaner retro-tech palette */
+:root{--mint:#dce9e8;--pink:#a8c5c4;--paper:#f3f6f5;--ink:#26383d;--muted:#71858a;--line:#a8bfc0}
+body{color:var(--ink);font-family:Arial,Helvetica,sans-serif;background:#dce5e5;background-image:linear-gradient(#ffffff70 1px,transparent 1px),linear-gradient(90deg,#ffffff70 1px,transparent 1px);background-size:28px 28px}
+.decor{opacity:.28;color:#42646a}.d1{content:""} .d2,.d3,.d4{display:none}
+.site-title{font-family:Arial,Helvetica,sans-serif;font-weight:800;letter-spacing:2px;text-shadow:2px 2px #fff}
+.tagline{color:#61787d;letter-spacing:2.5px}
+.window{background:#f4f7f6f2;border:1px solid #81999c;border-radius:5px;box-shadow:0 14px 38px #253c4030}
+.titlebar{background:linear-gradient(90deg,#314a50,#54777b);color:#f4f7f6;border-bottom:1px solid #789396}
+.winbtn{background:#e7eeee;color:#26383d;border-color:#a6b9ba}
+.nav{background:#e7eeee;border-bottom:1px solid #b6c7c7}
+.nav a{color:#38565c;border-color:#c0cece}.nav a:hover{color:#152d32}
+.status{color:#6d8083}.dot{color:#3f9b83}
+.hero-art{border:1px solid #a9babb;background:linear-gradient(145deg,#edf3f2,#c7d9d8);border-radius:4px}
+.cake{font-size:clamp(90px,20vw,155px);filter:drop-shadow(0 8px 5px #34494a30)}
+.hero-art:after{content:"[ SYSTEM ONLINE ]";color:#54777b;letter-spacing:3px;font:11px monospace}
+.handle{color:#315c63;font-family:Arial,Helvetica,sans-serif;letter-spacing:.5px}
+.bio{color:#64777a}.bio strong{color:#314f55}
+.mini{border:1px solid #b5c6c6;background:linear-gradient(145deg,#f7f9f8,#d3e1e0);border-radius:3px;box-shadow:0 2px 5px #0001}
+.action{border:1px solid #a8babb;border-radius:3px;background:#edf2f1;color:#38575d;box-shadow:0 2px 4px #0001}
+.action:hover,.action.liked{background:#d5e6e3;color:#244d50}
+.user-strip{border:1px solid #a8babb;border-radius:4px;background:#e2ebea;color:#38575d;letter-spacing:2px}
+.social{border:1px dashed #a9babb;border-radius:4px;background:#ffffff80}
+.social-card{border-radius:4px;color:#eaf2f1;background-color:#54777b;background-image:linear-gradient(135deg,#314a50,#729396);border:1px solid #789396}
+.social-card.insta{background-color:#405d64;color:#fff;background-image:linear-gradient(135deg,#263b42,#607d81);border-color:#789396}
+.social p,.footer{color:#718589}.footer a{color:#45676d}
+
 </style></head>
 <body><div class="decor d1">✿</div><div class="decor d2">♡</div><div class="decor d3">✧</div><div class="decor d4">❀</div>
-<main class="page" id="top"><h1 class="site-title">fadedpixel ♡</h1><p class="tagline">a little corner of the internet ✧</p>
-<section class="window" id="home"><header class="titlebar"><span class="gear">⚙</span><span>Virtual PC Console</span><div class="window-controls"><button class="winbtn" aria-label="Minimize" onclick="document.querySelector('.inner').classList.toggle('hidden')">−</button><button class="winbtn" aria-label="Info" onclick="alert('Welcome to fadedpixel! ♡')">i</button><button class="winbtn" aria-label="Close" onclick="document.querySelector('.window').style.opacity='.35'">×</button></div></header>
+<main class="page" id="top"><h1 class="site-title">fadedpixel<span style="color:#5b8588">_</span></h1><p class="tagline">PERSONAL WEBSPACE · EST. 2026</p>
+<section class="window" id="home"><header class="titlebar"><span class="gear">⚙</span><span>Virtual PC Console</span><div class="window-controls"><button class="winbtn" aria-label="Minimize" onclick="document.querySelector('.inner').classList.toggle('hidden')">−</button><button class="winbtn" aria-label="Info" onclick="alert('Welcome to fadedpixel.')">i</button><button class="winbtn" aria-label="Close" onclick="document.querySelector('.window').style.opacity='.35'">×</button></div></header>
 <nav class="nav"><a href="#home">Home</a><a href="#about">About</a><a href="#interests">Interests</a><a href="#socials">Links</a><a href="#top">Top</a></nav>
 <div class="inner"><p class="status"><span class="dot">●</span> <strong>Live</strong> · <span id="clock">online now</span></p>
-<div class="profile" id="about"><div><div class="hero-art" aria-label="Decorative pastel illustration"><span class="cake">🍰</span></div><p style="font:13px Arial,sans-serif;color:#a69a9d;margin:7px 0">404 not found in the system, 404 new era era.</p>
+<div class="profile" id="about"><div><div class="hero-art" aria-label="Decorative pastel illustration"><span class="cake">🖥️</span></div><p style="font:13px Arial,sans-serif;color:#a69a9d;margin:7px 0">404 not found in the system, 404 new era era.</p>
 <div class="actions"><button class="action" id="like">♡ Like <span id="likes">0</span></button><button class="action" onclick="document.getElementById('reply').scrollIntoView({behavior:'smooth'})">▣ Reply</button><button class="action" id="share">↗ Share</button></div></div>
 <div><h2 class="handle">@fadedpixel ♡</h2><p class="bio">Hiii!!<br>just a guy exploring the little things in life ✧<br><strong>he / him</strong> · music · photography · technology<br>currently somewhere between reality and the internet.</p><div class="mini-gallery" id="interests"><div class="mini">🎧</div><div class="mini">📷</div><div class="mini">🪐</div></div><p style="text-align:center;color:#a58c95;font:12px Arial,sans-serif">music · moments · memories</p></div></div>
-<div class="user-strip">୨ৎ USER ID : fadedpixel ♡</div><div class="socials" id="socials"><div class="social"><h3>Discord</h3><a class="social-card" href="#" onclick="event.preventDefault();alert('Add your Discord link here!')" aria-label="Discord link">◉</a><p>add your username</p></div><div class="social"><h3>Instagram</h3><a class="social-card insta" href="#" onclick="event.preventDefault();alert('Add your Instagram link here!')" aria-label="Instagram link">◎</a><p>add your username</p></div></div>
-<div id="reply" class="footer">made with ♡ by fadedpixel · <a href="#top">back to top</a></div></div></section><p class="footer">© fadedpixel · a tiny digital daydream ✧</p></main>
+<div class="user-strip">USER ID // FADEDPIXEL</div><div class="socials" id="socials"><div class="social"><h3>Discord</h3><a class="social-card" href="#" onclick="event.preventDefault();alert('Add your Discord link here!')" aria-label="Discord link">◉</a><p>add your username</p></div><div class="social"><h3>Instagram</h3><a class="social-card insta" href="#" onclick="event.preventDefault();alert('Add your Instagram link here!')" aria-label="Instagram link">◎</a><p>add your username</p></div></div>
+<div id="reply" class="footer">BUILT BY FADEDPIXEL · <a href="#top">back to top</a></div></div></section><p class="footer">© FADEDPIXEL · END OF TRANSMISSION</p></main>
 <script>const clock=document.getElementById('clock');function updateClock(){clock.textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}updateClock();setInterval(updateClock,30000);let count=0;document.getElementById('like').addEventListener('click',function(){count++;document.getElementById('likes').textContent=count;this.classList.add('liked');this.firstChild.textContent='♥ Like '});document.getElementById('share').addEventListener('click',async function(){const data={title:'fadedpixel ♡',text:'a little corner of the internet ✧',url:location.href};try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(location.href);alert('Website link copied!')}}catch(e){}});</script>
 </body></html>
